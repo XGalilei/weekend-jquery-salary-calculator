@@ -15,7 +15,7 @@ function submitEmployee() {
     let emTitle = $('#title-input').val();
     let emSalary = $('#salary-input').val();
     
-    $('#employee-table').append(
+    $('tbody').append(
         `<tr id = "employee-${emID}">
             <td>${emFirstName}</td>
             <td>${emLastName}</td>
@@ -38,5 +38,12 @@ function deleteEmployee() {
 
 function updateMonthlyCosts(salary) {
     monthlyTotal += salary;
+    if(monthlyTotal > 20000) 
+    {
+        $('h3').css('background-color', "red");
+    }
+    else{
+        $('h3').css('background-color', "white");
+    }
     $('#fee').text(monthlyTotal);
 }
