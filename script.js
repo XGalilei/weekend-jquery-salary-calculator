@@ -16,18 +16,27 @@ function submitEmployee() {
     let emSalary = $('#salary-input').val();
     
     $('#employee-table').append(
-        `<tr>
+        `<tr id = "employee-${emID}">
             <td>${emFirstName}</td>
             <td>${emLastName}</td>
             <td>${emID}</td>
             <td>${emTitle}</td>
-            <td>${emSalary}</td>
+            <td>$${emSalary}</td>
             <td><button class = "delete">Delete</button></td>
         </tr>`
     );
-    //emSalary = emSalary / 12;
+    updateMonthlyCosts(emSalary / 12);
+    $('input').val('');
 }
 
 function deleteEmployee() {
+    let id = $(this).parent().parent().attr('id');
+    console.log(id);
+    $(this).parent().parent().remove();
     console.log('Deleted employee');
+}
+
+function updateMonthlyCosts(salary) {
+    monthlyTotal += salary;
+    $('#fee').text(monthlyTotal);
 }
