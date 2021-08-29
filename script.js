@@ -1,4 +1,5 @@
 let monthlyTotal = 0;
+let employees = [];
 
 $(document).ready(readyNow);
 
@@ -15,19 +16,34 @@ function submitEmployee() {
     let emTitle = $('#title-input').val();
     let emSalary = $('#salary-input').val();
 
-    
-    $('tbody').append(
-        `<tr id = "employee-${emID}">
-            <td>${emFirstName}</td>
-            <td>${emLastName}</td>
-            <td>${emID}</td>
-            <td>${emTitle}</td>
-            <td class = "salary-row">${emSalary}</td>
-            <td class = "delete-row"><button class = "delete">Delete</button></td>
-        </tr>`
-    );
-    updateMonthlyCosts(emSalary / 12);
-    $('input').val('');
+    if(emFirstName === '' || emLastName === '' || emID === '' || emTitle === '' || emSalary === '') {
+        console.log('Fields missing: please supply all input');
+    }
+    else {
+        $('tbody').append(
+            `<tr id = "employee-${emID}">
+                <td>${emFirstName}</td>
+                <td>${emLastName}</td>
+                <td>${emID}</td>
+                <td>${emTitle}</td>
+                <td class = "salary-row">${emSalary}</td>
+                <td class = "delete-row"><button class = "delete">Delete</button></td>
+            </tr>`
+        );
+
+        employees.push({
+            firstName: emFirstName,
+            lastName: lastName,
+            id: emID,
+            title: emTitle,
+            salary: emSalary
+        });
+
+        updateMonthlyCosts(emSalary / 12);
+        $('input').val('');
+        console.log('Employee added to the table');
+    }
+
 }
 
 function deleteEmployee() {
