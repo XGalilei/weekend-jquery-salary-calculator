@@ -3,7 +3,6 @@ table {
     margin: auto;
     border: 1px black solid;
     border-collapse: collapse;
-    
 }
 
 th, td{
@@ -14,6 +13,30 @@ h3 {
     background-color: white;
 }
 
+thead {
+    background-color: darkgray;
+}
+
 tfoot {
     height: 25px;
+}
+
+.delete {
+    width: 100px;
+}
+
+header {
+    background-color: grey;
+    text-align: center;
+    color: white;
+    padding: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.salary-row {
+    text-align: right;
 }

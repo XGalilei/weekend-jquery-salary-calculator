@@ -14,6 +14,7 @@ function submitEmployee() {
     let emID = $('#id-input').val();
     let emTitle = $('#title-input').val();
     let emSalary = $('#salary-input').val();
+
     
     $('tbody').append(
         `<tr id = "employee-${emID}">
@@ -21,8 +22,8 @@ function submitEmployee() {
             <td>${emLastName}</td>
             <td>${emID}</td>
             <td>${emTitle}</td>
-            <td>$${emSalary}</td>
-            <td><button class = "delete">Delete</button></td>
+            <td class = "salary-row">${emSalary}</td>
+            <td class = "delete-row"><button class = "delete">Delete</button></td>
         </tr>`
     );
     updateMonthlyCosts(emSalary / 12);
@@ -30,9 +31,10 @@ function submitEmployee() {
 }
 
 function deleteEmployee() {
-    let id = $(this).parent().parent().attr('id');
-    console.log(id);
-    $(this).parent().parent().remove();
+    let sal = $(this).closest('tr').children(".salary-row").text();
+    console.log(sal);
+    updateMonthlyCosts(-sal / 12);
+    $(this).closest('tr').remove();
     console.log('Deleted employee');
 }
 
@@ -45,5 +47,5 @@ function updateMonthlyCosts(salary) {
     else{
         $('h3').css('background-color', "white");
     }
-    $('#fee').text(monthlyTotal);
+    $('#fee').text(monthlyTotal.toFixed(2));
 }
