@@ -26,14 +26,14 @@ function submitEmployee() {
                 <td>${emLastName}</td>
                 <td>${emID}</td>
                 <td>${emTitle}</td>
-                <td class = "salary-row">${emSalary}</td>
+                <td class = "salary-row">$${emSalary}</td>
                 <td class = "delete-row"><button class = "delete">Delete</button></td>
             </tr>`
         );
 
         employees.push({
             firstName: emFirstName,
-            lastName: lastName,
+            lastName: emLastName,
             id: emID,
             title: emTitle,
             salary: emSalary
