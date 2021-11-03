@@ -17,5 +17,5 @@ An application that records employee salaries and adds salaries up to report mon
 
 ### Stretch Goals
 - [x] update the total cost upon the deletion of a row
-- [] array and objects to hold information
+- [x] array and objects to hold information
 - [x] alert the user of missing fields

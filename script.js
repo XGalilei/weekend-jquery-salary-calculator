@@ -9,6 +9,7 @@ function readyNow() {
     $('#employee-table').on('click', '.delete', deleteEmployee);
 }
 
+//submits an employee's information and adds it to the table
 function submitEmployee() {
     let emFirstName = $('#first-name-input').val();
     let emLastName = $('#last-name-input').val();
